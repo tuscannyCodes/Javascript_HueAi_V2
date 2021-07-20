@@ -26,6 +26,15 @@ let navCounter = 0;
 
 let audio = new Audio('imClosingMyEyes.mp3'); //Music available in local version only 
 
+let d = new Date(), //This is the current Date variable  
+    minutes = d.getMinutes().toString().length == 1 ? '0'+d.getMinutes() : d.getMinutes(),
+    hours = d.getHours().toString().length == 1 ? '0'+d.getHours() : d.getHours(),
+    ampm = d.getHours() >= 12 ? 'pm' : 'am',
+    months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
+    days = ['Sunday','Monday','Tueday','Wednesday','Thursday','Friday','Saturday'];
+    
+//return days[d.getDay()]+' '+months[d.getMonth()]+' '+d.getDate()+' '+d.getFullYear()+' '+hours+':'+minutes+ampm; 
+
 
 
 
@@ -47,7 +56,7 @@ if (navCounter % 2 == 0) {
 
 /*navDiv.addEventListener("click", () => {navBackground.classList.toggle("open");});*/
 
-navLinks.addEventListener("click", () => {navBackground.classList.toggle("open");});
+//navLinks.addEventListener("click", () => {navBackground.classList.toggle("open");});
 
 //NAVIGATION FUNCTIONS END----------------------
 
@@ -276,7 +285,7 @@ if(inputBox.value.includes("cool")){
     }
 
     if (inputBox.value.includes(" time") || inputBox.value.includes(" date") || inputBox.value.includes(" day")){
-        mainParagraph.innerHTML = "My date and time functionality will become available in future updates. Until then, I suggest you buy a clock."
+        mainParagraph.textContent = `Today is ` + days[d.getDay()]+' '+months[d.getMonth()]+' '+d.getDate()+' '+d.getFullYear()
         counter++;
         inputBox.value = "";
     }
@@ -435,7 +444,7 @@ else if (inputBox.value === "stop"){
 
 
 
-
+console.log(days[d.getDay()]+' '+months[d.getMonth()]+' '+d.getDate()+' '+d.getFullYear())
 }; // <= END OF FUNCTION fn1
 
 
