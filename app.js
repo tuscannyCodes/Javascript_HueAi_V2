@@ -486,10 +486,31 @@ inputBox.onkeydown = function(e)
 
 //NOTES 
 /****** 
- 
+  
+ 1.
  I want to add a "reminder" feature. Where if you use a keyword 'remind me' it grabs the text after the keword and saves it to
  a reminder variable. It should then ask the user "when would you like me to remind you?" maybe a selector box pops up with possible 
  times. Maybe i could work on a seperate 'simple reminder app' to get the functionality right, and then implement it into Hue.    
+
+
+ 2.CLOCK MODE 
+ I could make a 'clock mode' where if you use a keyword 'clock', Hue turns into a clock similar to my screensaver 
+ using:  
+ 
+ setInterval(myTimer,1000);
+
+ const myTimer = () => {
+const clockTime = new Date();
+document.getElementById(WHERE I WANT THIS TO RENDER).innerHTML= myTimer.toLocaleTimeString();
+}
+
+But i think i want it to display in words. 
+
+5. 
+Elaborate on date functionality. If user asks "what day is it today" only provide day of the week. 
+If then the user provides a keyword like "and?", does hue provide the full date. If the user asks for the date upfront,
+Hue provides the full date. 
+
   
 */
 
