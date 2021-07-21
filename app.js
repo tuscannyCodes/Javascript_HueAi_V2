@@ -83,7 +83,7 @@ function fn1() {
 
 
 
-// -------I DONT UNDERSTAND----------
+// -------I DONT UNDERSTAND---------
 
 if (inputBox.value != keyWords || inputBox.value != colors) {
     const dontGetIt =[ "Sorry, Im having trouble understanding you.", "I didnt quite get that.", "I dont understand.",
