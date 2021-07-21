@@ -48,8 +48,12 @@ hamburger.addEventListener("click", () => {navBackground.classList.toggle("open"
 
 navCounter++;
 
-if (navCounter % 2 == 0) {
-    mainParagraph.innerHTML = "Welcome back friend :D"}});
+if (navCounter % 2 == 0 && uName) {
+    mainParagraph.textContent = `Welcome back ${uName}`}
+
+
+else if (navCounter % 2 == 0) {
+    mainParagraph.textContent = "Welcome back friend :D"}});
 
    
     
@@ -283,7 +287,7 @@ if(inputBox.value.includes("cool")){
         inputBox.value = "";
         counter++;
     }
-
+// DATE
     if (inputBox.value.includes(" time") || inputBox.value.includes(" date") || inputBox.value.includes(" day")){
         mainParagraph.textContent = `Today is ` + days[d.getDay()]+' '+months[d.getMonth()]+' '+d.getDate()+' '+d.getFullYear()
         counter++;
@@ -444,7 +448,7 @@ else if (inputBox.value === "stop"){
 
 
 
-console.log(days[d.getDay()]+' '+months[d.getMonth()]+' '+d.getDate()+' '+d.getFullYear())
+console.log(hours,minutes)
 }; // <= END OF FUNCTION fn1
 
 
