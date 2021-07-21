@@ -18,13 +18,16 @@ const hamburgerLines = document.getElementsByClassName("line")
 
 const navDiv = document.getElementById("navigation")
 
-let counter = 0; //keep track of conversation
+let counter = 0; //keeps track of conversation
 
 let hunger = 0;
 
 let navCounter = 0;
 
-let audio = new Audio('imClosingMyEyes.mp3'); //Music available in local version only 
+let audio = [new Audio('imClosingMyEyes.mp3'),new Audio('puertoMate.mp3')] //Music available in local version only 
+//Keeps track of current song
+let songTrackNum = 0;
+
 
 let d = new Date(), //This is the current Date variable  
     ampm = d.getHours() >= 12 ? 'pm' : 'am',
@@ -41,7 +44,7 @@ let colors = ["pink","orange","blue","red","green","black","white","purple"]
 
 let keyWords = ["",colors,"goodbye","bye","how do you","ok",
 "cool","wow","meet you","old","hello","who ","where ","hi","hey",
-"your name","bored","boring"," your favorite color"," date",
+"your name","bored","boring"," your favorite color"," date","change",
 " day"," time","how are you","good","great","fantastic","yes","no",
 "my name"," me?","thanks","thank you","welcome","np","music","sing","song","stop",   ];
 
@@ -76,13 +79,9 @@ function fn1() {
 
     
 
-//---------YOU SAID NOTHING---------
-if (inputBox.value == "") {
 
-    mainParagraph.innerHTML = "Hmmm... You did not type anything."
-    
-}
-//---------SAID NOTHING END---------
+
+
 
 // -------I DONT UNDERSTAND----------
 
@@ -92,7 +91,14 @@ if (inputBox.value != keyWords || inputBox.value != colors) {
 
 
     mainParagraph.innerHTML = dontGetIt[Math.floor(Math.random()*dontGetIt.length)];
-    
+//---------YOU SAID NOTHING---------
+    if (inputBox.value.length === 0) {
+        const userSaidNothing = ["Hmmm... You did not type anything.", "You forgot to say something"];
+        mainParagraph.innerHTML = userSaidNothing[Math.floor(Math.random()*userSaidNothing.length)];
+        
+    }
+
+//---------SAID NOTHING END---------
 }
 
 // -------I DONT UNDERSTAND END----------
@@ -304,6 +310,7 @@ if(inputBox.value.includes("cool")){
         mainParagraph.innerHTML = "If you're feeling bored, try doing something productive. I suggest reading a book, meditating, yoga or exercise."
 
         hueQuestionBox.innerHTML = "You can also change my colors by asking me to change to a specific color!"
+        setTimeout(function(){hueQuestionBox.innerHTML = ""}, 5000)
         counter++;
         inputBox.value = "";
     }
@@ -397,6 +404,8 @@ if (body.style.backgroundColor === "white") {
         counter++;
         inputBox.value = "";
         }
+
+        
 // ----NAME INFORMATION END------
 
 
@@ -427,29 +436,43 @@ if (uName){
 
 //MUSIC SECTION----- 
 
-if (inputBox.value.includes("music") || inputBox.value.includes("sing")|| inputBox.value.includes("song")){
+if (inputBox.value.includes("music") || inputBox.value.includes("sing")|| inputBox.value.includes("song") || inputBox.value.includes("track 1")){
     
     //music goes here
-    audio.play();
+    audio[0].play();
     audio.loop = true;
     mainParagraph.innerHTML = "Singing..."
     hueQuestionBox.innerHTML = `Type "stop" and I'll stop singing. `
-    setTimeout(function(){hueQuestionBox.innerHTML = ""}, 5000)
+    setTimeout(function(){hueQuestionBox.innerHTML = ""}, 7000)
     inputBox.value = "";
-    counter++;
+    songTrackNum = 1; 
+    
 }
 
 
+if (songTrackNum = 1 && inputBox.value.includes("next") || inputBox.value.includes("track 2") ){
+    audio[0].pause();
+    audio[1].play();
+    audio[1].loop = true;
+    mainParagraph.innerHTML = "Heres track 2"
+    hueQuestionBox.innerHTML = `Type "stop" and I'll stop singing. `
+    setTimeout(function(){hueQuestionBox.innerHTML = ""}, 7000)
+    inputBox.value = "";
+    songTrackNum = 2;
+    console.log("hit")
+}
+
 else if (inputBox.value === "stop"){
 
-    audio.pause();
+    audio[0].pause();
+    audio[1].pause();
     
 
     mainParagraph.innerHTML = "ok"
     hueQuestionBox.innerHTML = ""
     
     inputBox.value = "";
-    counter++;
+   
 }
 
 
@@ -458,7 +481,7 @@ else if (inputBox.value === "stop"){
 //MUSIC SECTION END----- 
 
 
-console.log(keyWords[0])
+console.log()
 }; // <= END OF FUNCTION fn1
 
 
