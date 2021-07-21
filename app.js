@@ -27,13 +27,14 @@ let navCounter = 0;
 let audio = new Audio('imClosingMyEyes.mp3'); //Music available in local version only 
 
 let d = new Date(), //This is the current Date variable  
-    minutes = d.getMinutes().toString().length == 1 ? '0'+d.getMinutes() : d.getMinutes(),
-    hours = d.getHours().toString().length == 1 ? '0'+d.getHours() : d.getHours(),
     ampm = d.getHours() >= 12 ? 'pm' : 'am',
     months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
     days = ['Sunday','Monday','Tueday','Wednesday','Thursday','Friday','Saturday'];
-    
-//return days[d.getDay()]+' '+months[d.getMonth()]+' '+d.getDate()+' '+d.getFullYear()+' '+hours+':'+minutes+ampm; 
+    //return days[d.getDay()]+' '+months[d.getMonth()]+' '+d.getDate()+' '+d.getFullYear()+' '+hours+':'+minutes+ampm; 
+
+
+let time = new Date(); // This is for the current time. 
+
 
 
 
@@ -288,11 +289,21 @@ if(inputBox.value.includes("cool")){
         counter++;
     }
 // DATE
-    if (inputBox.value.includes(" time") || inputBox.value.includes(" date") || inputBox.value.includes(" day")){
+    if (inputBox.value.includes(" date") || inputBox.value.includes(" day")){
         mainParagraph.textContent = `Today is ` + days[d.getDay()]+' '+months[d.getMonth()]+' '+d.getDate()+' '+d.getFullYear()
         counter++;
         inputBox.value = "";
     }
+
+//TIME
+
+if (inputBox.value.includes(" time")) {
+    mainParagraph.textContent = `The time is ` + time.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12:true })
+    counter++;
+    inputBox.value = "";
+
+}
+
 
 //------------------SMALL TALK END-------------------------
 
@@ -389,6 +400,7 @@ if (uName){
 
 // ----THANKS END------
 //HUNGER FUNCTIONALITY --------------------
+/*
 if (counter === 8){
 
 hunger++
@@ -416,6 +428,7 @@ if (inputBox.value === "food" && hunger<1){
     inputBox.value = "";
     counter++;
 }
+*/
 //HUNGER FUNCTIONALITY END--------------------
 //MUSIC----- 
 if (inputBox.value.includes("music") || inputBox.value.includes("sing")|| inputBox.value.includes("song")){
@@ -448,7 +461,7 @@ else if (inputBox.value === "stop"){
 
 
 
-console.log(hours,minutes)
+console.log()
 }; // <= END OF FUNCTION fn1
 
 
