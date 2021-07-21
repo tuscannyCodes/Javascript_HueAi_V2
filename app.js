@@ -440,7 +440,7 @@ if (inputBox.value.includes("music") || inputBox.value.includes("sing")|| inputB
     
     //music goes here
     audio.play();
-
+    audio.loop = true;
     mainParagraph.innerHTML = "Singing..."
 
     hueQuestionBox.innerHTML = `Type "stop" and I'll stop singing. `
