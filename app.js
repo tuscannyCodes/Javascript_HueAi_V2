@@ -40,7 +40,7 @@ let time = new Date(); // This is for the current time.
 let colors = ["pink","orange","blue","red","green","black","white","purple"]
 
 let keyWords = ["",colors,"goodbye","bye","how do you","ok",
-"cool","wow","meet you","old","hello","who ","where ","hi",
+"cool","wow","meet you","old","hello","who ","where ","hi","hey",
 "your name","bored","boring"," your favorite color"," date",
 " day"," time","how are you","good","great","fantastic","yes","no",
 "my name"," me?","thanks","thank you","welcome","np","music","sing","song","stop",   ];
@@ -285,8 +285,12 @@ if(inputBox.value.includes("cool")){
         inputBox.value = "";
     }
 
-    if (inputBox.value.includes("hi")) {
-        mainParagraph.innerHTML = "Hello"
+    if (inputBox.value.includes("hi") || inputBox.value.includes("hey")) {
+        const casualGreeting =[ "Hey there", "Hii", "Hey",
+        "Hello", "Hi"]
+       
+       
+        mainParagraph.innerHTML = casualGreeting[Math.floor(Math.random()*casualGreeting.length)];
         counter++;
         inputBox.value = "";
     }

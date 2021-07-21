@@ -8,6 +8,27 @@ body {
 }
 /*main background color and basics*/
 
+/*REMINDER SECTION 
+.reminderTimer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 30vh;
+}
+.selectBox {
+  position: absolute;
+  text-align: center;
+  height: 100px;
+  width: 200px;
+  font-size: 30px;
+  background-color: darkorange;
+  box-shadow: none;
+  color: white;
+  border: none;
+}
+REMINDER SECTION END*/
+
 /*NAV SECTION*/
 
 .hamburger {
