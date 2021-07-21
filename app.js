@@ -37,7 +37,13 @@ let time = new Date(); // This is for the current time.
 
 
 
+let colors = ["pink","orange","blue","red","green","black","white","purple"]
 
+let keyWords = ["",colors,"goodbye","bye","how do you","ok",
+"cool","wow","meet you","old","hello","who ","where ","hi",
+"your name","bored","boring"," your favorite color"," date",
+" day"," time","how are you","good","great","fantastic","yes","no",
+"my name"," me?","thanks","thank you","welcome","np","music","sing","song","stop",   ];
 
 //--------------------------------------------------
 //VARIABLES END------------------------------------
@@ -76,97 +82,117 @@ if (inputBox.value == "") {
     mainParagraph.innerHTML = "Hmmm... You did not type anything."
     
 }
-
-
 //---------SAID NOTHING END---------
+
+// -------I DONT UNDERSTAND----------
+
+if (inputBox.value != keyWords || inputBox.value != colors) {
+    const dontGetIt =[ "Sorry, Im having trouble understanding you.", "I didnt quite get that.", "I dont understand.",
+     "Sorry, I dont know what that means yet.", "???"]
+
+
+    mainParagraph.innerHTML = dontGetIt[Math.floor(Math.random()*dontGetIt.length)];
+    
+}
+
+// -------I DONT UNDERSTAND END----------
 
 //---------------------ALL COLOR CHANGES--------------------
 
-if (inputBox.value.includes ("pink")) {
+if (inputBox.value.includes (colors[0])) {
 
     body.style.backgroundColor = "LightPink"
     mainButton.style.backgroundColor = "HotPink"
     navBackground.style.backgroundColor = "HotPink"
     mainParagraph.style.color = "white"
+    mainParagraph.innerHTML = "yay"
     inputBox.value = "";
     counter++;
 }
 
-if (inputBox.value.includes ("orange")) {
+if (inputBox.value.includes (colors[1])) {
 
     body.style.backgroundColor = "orange"
     mainButton.style.backgroundColor = "DarkOrange"
     navBackground.style.backgroundColor = "DarkOrange"
     mainParagraph.style.color = "white"
+    mainParagraph.innerHTML = "Vitamin C... ++ "
     inputBox.value = "";
     counter++;
 }
 
-if (inputBox.value.includes ("blue")) {
+if (inputBox.value.includes (colors[2])) {
 
     body.style.backgroundColor = "LightBlue"
     mainButton.style.backgroundColor = "DarkTurquoise"
     navBackground.style.backgroundColor = "DarkTurquoise"
     mainParagraph.style.color = "white"
+    mainParagraph.innerHTML = "Im blue DabaDee"
     inputBox.value = "";
     counter++;
 }
 
 
-if (inputBox.value.includes (" red")) {
+if (inputBox.value.includes (colors[3])) {
 
     body.style.backgroundColor = "FireBrick"
     mainButton.style.backgroundColor = "Maroon"
     navBackground.style.backgroundColor = "Maroon"
     mainParagraph.style.color = "white"
+    mainParagraph.innerHTML = "Like what you see?"
     inputBox.value = "";
     counter++;
 }
 
 
-if (inputBox.value.includes ("green")) {
+if (inputBox.value.includes (colors[4])) {
 
     body.style.backgroundColor = "DarkOliveGreen"
     mainButton.style.backgroundColor = "MediumSeaGreen"
     navBackground.style.backgroundColor = "MediumSeaGreen"
     mainParagraph.style.color = "white"
+    mainParagraph.innerHTML = 'Im feeling... "earthy".'
     inputBox.value = "";
     counter++;
 }
 
-if (inputBox.value.includes ("black")) {
+if (inputBox.value.includes (colors[5])) {
 
     body.style.backgroundColor = "black"
     mainButton.style.backgroundColor = "white"
     mainButton.style.color = "black"
     navBackground.style.backgroundColor = "grey"
+    mainParagraph.innerHTML = "All black is so classy"
     mainParagraph.style.color = "white"
     inputBox.value = "";
     counter++;
 }
 
-if (inputBox.value.includes ("white")) {
+if (inputBox.value.includes (colors[6])) { 
 
     body.style.backgroundColor = "white"
     mainButton.style.backgroundColor = "white"
     inputBox.style.backgroundColor = "WhiteSmoke"
     navBackground.style.backgroundColor = "black"
     mainParagraph.style.color = "black"
+    mainParagraph.innerHTML = "Minimal"
     mainButton.style.color = "black"
     inputBox.value = "";
     counter++;
 
+
+
 }
 
 
-
-if (inputBox.value.includes ("purple")) {
+if (inputBox.value.includes (colors[7])) {
 
     body.style.backgroundColor = "Thistle"
     mainButton.style.backgroundColor = "Violet"
     navBackground.style.backgroundColor = "Violet"
     inputBox.style.backgroundColor = "White"
     mainParagraph.style.color = "White"
+    mainParagraph.innerHTML = "Im Feeling BERRY good about this color"
     mainButton.style.color = "White"
     inputBox.value = "";
     counter++;
@@ -337,12 +363,6 @@ if (counter === 3) {
 
 } 
 
-/*else {
-    mainParagraph.innerHTML = "sorry i dont understand this yet. please try something else." 
-    inputBox.value = "";
-     //NOT WORKING 
-    
-}*/
 
 if (uName && counter === 3) {
     mainParagraph.style.fontSize = "20px";
@@ -401,38 +421,6 @@ if (uName){
 // ----THANK YOU RESPONSES END------
 
 
-//HUNGER FUNCTIONALITY --------------------
-/*
-if (counter === 8){
-
-hunger++
-mainParagraph.style.fontSize = "30px";
-mainParagraph.innerHTML = 'Im hungry :C will you please feed me by typing "food" into my text box?'
-}
-
-if (inputBox.value === "food" && uName && hunger>=1){
-    mainParagraph.style.fontSize = "20px";
-    mainParagraph.innerHTML = `Mmmm digital food is the best food. Thank you so much ${uName}.`
-    hunger--;
-    inputBox.value = "";
-}
-
-if(hunger>= 1 && inputBox.value != "food") {
-
-    mainParagraph.style.fontSize = "20px";
-
-
-}
-
-if (inputBox.value === "food" && hunger<1){
-
-    mainParagraph.innerHTML = "Thanks, but my hunger variable is less than 1, which means that I am satiated."
-    inputBox.value = "";
-    counter++;
-}
-*/
-//HUNGER FUNCTIONALITY END--------------------
-
 //MUSIC SECTION----- 
 
 if (inputBox.value.includes("music") || inputBox.value.includes("sing")|| inputBox.value.includes("song")){
@@ -441,8 +429,8 @@ if (inputBox.value.includes("music") || inputBox.value.includes("sing")|| inputB
     audio.play();
     audio.loop = true;
     mainParagraph.innerHTML = "Singing..."
-
     hueQuestionBox.innerHTML = `Type "stop" and I'll stop singing. `
+    setTimeout(function(){hueQuestionBox.innerHTML = ""}, 5000)
     inputBox.value = "";
     counter++;
 }
@@ -463,11 +451,10 @@ else if (inputBox.value === "stop"){
 
 
 
-
 //MUSIC SECTION END----- 
 
 
-console.log()
+console.log(keyWords[0])
 }; // <= END OF FUNCTION fn1
 
 
@@ -483,6 +470,74 @@ inputBox.onkeydown = function(e)
 }
 
 }
+
+/*
+//CLOCK MODE WORK SECTION
+
+function startTime() {
+    var today = new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    // add a zero in front of numbers greater than 10
+    clockModeText.innerHTML = 
+        convertHourToName(h) + " " + 
+        convertNumberToName(m) 
+        
+    setTimeout(startTime,60000);
+    
+}
+
+function checkTime(i) {
+    if (i < 10) {
+        i = "0" + i;
+    }
+    return i;
+} 
+
+function convertHourToName(num) {
+    if (num > 12) {
+        num -= 12;
+    }
+    return convertNumberToName(num);
+}
+
+function convertNumberToName(num) {
+    var lowNames = ["zero", "one", "two", "three", 
+                  "four", "five", "six", "seven", "eight", "nine", 
+                 "ten", "eleven", "twelve", "thirteen", "fourteen", 
+                  "fifteen", "sixteen", "seventeen", 
+                  "eighteen", "nineteen"];
+    var tensNames = ["twenty", "thirty", "forty", "fifty", 
+                "sixty", "seventy", "eighty", "ninety"];
+    var tens, ones, result;
+    if (num < lowNames.length) {
+        result = lowNames[num];
+    } else {
+        tens = Math.floor(num / 10);
+        ones = num % 10;
+        if (tens <= 9) {
+            result = tensNames[tens - 2];
+            if (ones > 0) {
+                result += " " + lowNames[ones];
+            }
+        } else {
+            result = "unknown"
+        }
+    }
+    return result;
+    
+}
+
+startTime()
+/*   
+
+
+
+
+
+
+// END CLOCK MODE WORK SECTION
 
 //NOTES 
 /****** 
@@ -510,6 +565,7 @@ But i think i want it to display in words.
 Elaborate on date functionality. If user asks "what day is it today" only provide day of the week. 
 If then the user provides a keyword like "and?", does hue provide the full date. If the user asks for the date upfront,
 Hue provides the full date. 
+
 
   
 */
