@@ -6,6 +6,6 @@ Date functionality has been added.
 
 working on: 
 
-1. setting colors in arrays. 
+<strike>1. setting colors in arrays. </strike>
 2. setTimeout for automated questions. 
 3. Local storage. 
