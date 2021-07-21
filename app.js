@@ -430,7 +430,12 @@ if (inputBox.value === "food" && hunger<1){
 }
 */
 //HUNGER FUNCTIONALITY END--------------------
+
 //MUSIC----- 
+
+//WANT TO LOOP AUDIO 
+
+
 if (inputBox.value.includes("music") || inputBox.value.includes("sing")|| inputBox.value.includes("song")){
     
     //music goes here
@@ -461,8 +466,24 @@ else if (inputBox.value === "stop"){
 
 
 
+
+
 console.log()
 }; // <= END OF FUNCTION fn1
+
+
+//EVENT LISTENERS 
+
+
+// ALLOWS 'ENTER' KEY FOR SUBMIT
+inputBox.onkeydown = function(e){
+
+if(e.keyCode === 13 ){
+
+    mainButton.click();
+}
+
+}
 
 
 
