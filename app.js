@@ -433,9 +433,6 @@ if (inputBox.value === "food" && hunger<1){
 
 //MUSIC----- 
 
-//WANT TO LOOP AUDIO 
-
-
 if (inputBox.value.includes("music") || inputBox.value.includes("sing")|| inputBox.value.includes("song")){
     
     //music goes here
