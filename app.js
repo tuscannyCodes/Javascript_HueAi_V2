@@ -288,14 +288,14 @@ if(inputBox.value.includes("cool")){
         inputBox.value = "";
         counter++;
     }
-// DATE
+// DATE RESPONSE
     if (inputBox.value.includes(" date") || inputBox.value.includes(" day")){
         mainParagraph.textContent = `Today is ` + days[d.getDay()]+' '+months[d.getMonth()]+' '+d.getDate()+' '+d.getFullYear()
         counter++;
         inputBox.value = "";
     }
 
-//TIME
+//TIME RESPONSE 
 
 if (inputBox.value.includes(" time")) {
     mainParagraph.textContent = `The time is ` + time.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12:true })
@@ -376,7 +376,7 @@ if (body.style.backgroundColor === "white") {
 // ----NAME INFORMATION END------
 
 
-// ----THANKS------
+// ----THANK YOU RESPONSES------
 if (inputBox.value.includes("thanks") || inputBox.value.includes("thank you")){
 
         mainParagraph.innerHTML = "You're very welcome."
@@ -398,7 +398,9 @@ if (uName){
     }
 
 
-// ----THANKS END------
+// ----THANK YOU RESPONSES END------
+
+
 //HUNGER FUNCTIONALITY --------------------
 /*
 if (counter === 8){
@@ -431,7 +433,7 @@ if (inputBox.value === "food" && hunger<1){
 */
 //HUNGER FUNCTIONALITY END--------------------
 
-//MUSIC----- 
+//MUSIC SECTION----- 
 
 if (inputBox.value.includes("music") || inputBox.value.includes("sing")|| inputBox.value.includes("song")){
     
@@ -462,7 +464,7 @@ else if (inputBox.value === "stop"){
 
 
 
-
+//MUSIC SECTION END----- 
 
 
 console.log()
@@ -473,14 +475,24 @@ console.log()
 
 
 // ALLOWS 'ENTER' KEY FOR SUBMIT
-inputBox.onkeydown = function(e){
-
-if(e.keyCode === 13 ){
+inputBox.onkeydown = function(e)
+{
+    if(e.keyCode === 13 ){
 
     mainButton.click();
 }
 
 }
+
+//NOTES 
+/****** 
+ 
+ I want to add a "reminder" feature. Where if you use a keyword 'remind me' it grabs the text after the keword and saves it to
+ a reminder variable. It should then ask the user "when would you like me to remind you?" maybe a selector box pops up with possible 
+ times. Maybe i could work on a seperate 'simple reminder app' to get the functionality right, and then implement it into Hue.    
+  
+*/
+
 
 
 
