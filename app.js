@@ -439,6 +439,7 @@ if (uName){
 if (inputBox.value.includes("music") || inputBox.value.includes("sing")|| inputBox.value.includes("song") || inputBox.value.includes("track 1")){
     
     //music goes here
+    audio[1].pause();
     audio[0].play();
     audio.loop = true;
     mainParagraph.innerHTML = "Singing..."
