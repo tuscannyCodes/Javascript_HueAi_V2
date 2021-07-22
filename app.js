@@ -441,7 +441,7 @@ if (inputBox.value.includes("music") || inputBox.value.includes("sing")|| inputB
     //music goes here
     audio[1].pause();
     audio[0].play();
-    audio.loop = true;
+    audio[0].loop = true;
     mainParagraph.innerHTML = "Singing..."
     hueQuestionBox.innerHTML = `Type "stop" and I'll stop singing. `
     setTimeout(function(){hueQuestionBox.innerHTML = ""}, 7000)
