@@ -20,8 +20,6 @@
  
  let counter = 0; //keeps track of conversation
  
- let hunger = 0;
- 
  let navCounter = 0;
  
  let audio = [new Audio('imClosingMyEyes.mp3'),new Audio('puertoMate.mp3')] //Music available in local version only 
@@ -37,7 +35,7 @@
  
  
  let time = new Date(); // This is for the time. 
- let timeMode;
+ let timeMode; // this is going to be used for clock mode screensaver
  let timerId;
  
  
@@ -522,73 +520,7 @@
  
  }
  
- /*
- //CLOCK MODE WORK SECTION
  
- function startTime() {
-     var today = new Date();
-     var h = today.getHours();
-     var m = today.getMinutes();
-     var s = today.getSeconds();
-     // add a zero in front of numbers greater than 10
-     clockModeText.innerHTML = 
-         convertHourToName(h) + " " + 
-         convertNumberToName(m) 
-         
-     setTimeout(startTime,60000);
-     
- }
- 
- function checkTime(i) {
-     if (i < 10) {
-         i = "0" + i;
-     }
-     return i;
- } 
- 
- function convertHourToName(num) {
-     if (num > 12) {
-         num -= 12;
-     }
-     return convertNumberToName(num);
- }
- 
- function convertNumberToName(num) {
-     var lowNames = ["zero", "one", "two", "three", 
-                   "four", "five", "six", "seven", "eight", "nine", 
-                  "ten", "eleven", "twelve", "thirteen", "fourteen", 
-                   "fifteen", "sixteen", "seventeen", 
-                   "eighteen", "nineteen"];
-     var tensNames = ["twenty", "thirty", "forty", "fifty", 
-                 "sixty", "seventy", "eighty", "ninety"];
-     var tens, ones, result;
-     if (num < lowNames.length) {
-         result = lowNames[num];
-     } else {
-         tens = Math.floor(num / 10);
-         ones = num % 10;
-         if (tens <= 9) {
-             result = tensNames[tens - 2];
-             if (ones > 0) {
-                 result += " " + lowNames[ones];
-             }
-         } else {
-             result = "unknown"
-         }
-     }
-     return result;
-     
- }
- 
- startTime()
- /*   
- 
- 
- 
- 
- 
- 
- // END CLOCK MODE WORK SECTION
  
  //NOTES 
  /****** 
