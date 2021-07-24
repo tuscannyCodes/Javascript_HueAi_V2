@@ -516,7 +516,7 @@ let reminderStr = inputBox.value;
 // get everything after first dash
 let slug = reminderStr.substring(reminderStr.indexOf('to ') + 2); // 01-2020
 
-alert("did you want me to remind you to" + slug + "?");
+mainParagraph.textContent= "did you want me to remind you to" + slug + "?";
 // get everything after last dash 
 //const slug = str.split('-').pop(); // 2020
 
