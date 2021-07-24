@@ -46,7 +46,7 @@
  "cool","wow","meet you","old","hello","who ","where ","hi","hey",
  "your name","bored","boring"," your favorite color"," date","change",
  " day"," time","how are you","good","great","fantastic","yes","no",
- "my name"," me?","thanks","thank you","welcome","np","music","sing","song","stop",   ];
+ "my name"," me?","thanks","thank you","welcome","np","music","sing","song","stop","remind me to ",   ];
  
  //--------------------------------------------------
  //VARIABLES END------------------------------------
@@ -76,7 +76,7 @@
  
  //MAIN BUTTON FUNCTION----------
  function fn1() {
- 
+    
      clearInterval(timerId);
  
  
@@ -358,9 +358,14 @@
      timeMode = false;
      clearInterval(timerId);
        
-     console.log("hit")
+     
    }
+   //BASIC TIME RESPONSE END
    
+
+
+//CLOCK MODE END
+
 
  //------------------SMALL TALK END-------------------------
  
@@ -500,7 +505,22 @@
  
  
  //MUSIC SECTION END----- 
- 
+
+ //working section
+ //REMINDER SECTION START -----
+
+ if(inputBox.value.includes("remind me to ")){
+
+let reminderStr = inputBox.value;
+
+// get everything after first dash
+let slug = reminderStr.substring(reminderStr.indexOf('to ') + 2); // 01-2020
+
+alert("did you want me to remind you to" + slug + "?");
+// get everything after last dash 
+//const slug = str.split('-').pop(); // 2020
+
+ }
  
  console.log()
  }; // <= END OF FUNCTION fn1
