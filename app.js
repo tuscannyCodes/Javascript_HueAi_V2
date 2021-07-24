@@ -175,11 +175,10 @@
  }
  
  if (inputBox.value.includes (colors[6])) { 
- 
+
      body.style.backgroundColor = "white"
-     mainButton.style.backgroundColor = "white"
+     mainButton.style.backgroundColor = "whiteSmoke"
      inputBox.style.backgroundColor = "WhiteSmoke"
-     navBackground.style.backgroundColor = "black"
      mainParagraph.style.color = "black"
      mainParagraph.innerHTML = "Minimal"
      mainButton.style.color = "black"
@@ -291,7 +290,7 @@
          inputBox.value = "";
      }
  
-     if (inputBox.value.includes("hi") || inputBox.value.includes("hey")) {
+     if (inputBox.value.includes("hi ") || inputBox.value.includes("hey")) {
          const casualGreeting =[ "Hey there", "Hii", "Hey",
          "Hello", "Hi"]
         

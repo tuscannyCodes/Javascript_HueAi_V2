@@ -111,6 +111,7 @@ REMINDER SECTION END*/
   font-family: sans-serif;
   font-size: 20px;
   color: white;
+  cursor: default;
 }
 #mainParagraph2 {
   width: 70vw;
