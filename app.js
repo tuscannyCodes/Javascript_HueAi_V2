@@ -348,7 +348,7 @@
        let updatedTime = new Date().toLocaleString("en-US", {
          hour: "numeric",
          minute: "numeric",
-         second: "numeric",
+         //second: "numeric",
          hour12: true
        });
  
@@ -364,39 +364,7 @@
      console.log("hit")
    }
    
-   
-   //OLD TIME RESPONSE
-   
- //MAKE TIME SO THAT IT IS DYNAMICALLY UPDATED IN TIME RESPONSE :solution set timeout for time function
- //ALSO MAKE SETTIMEOUT TO ENTER CLOCK MODE IF INACTIVE 
- /*if (inputBox.value.includes(" time")) {
-   
- //i tried using this variable
-     let updatedTime = setInterval(currentTime,1000);
-     console.log(currentTime)
- 
-     //If I replace after "the time is" with updatedTime variable I get "1" Why??? 
-         mainParagraph.textContent = `The time is ` + updatedTime
-         counter++;
-         inputBox.value = "";
-     
-   
-   //i only made this function because setTimeout requires a function 
-   
-   
- function currentTime (){
-   //If I put this inside the mainParagraph.textContent it will display correct time but not update.
-   mainParagraph.textContent = `The time is ` + time.toLocaleString('en-US', { hour:'numeric', minute: 'numeric', hour12:true })
-   
-   
-   }
-   
- 
-   
- console.log(updatedTime)
- }
- */
- 
+
  //------------------SMALL TALK END-------------------------
  
  //------MOOD----------
