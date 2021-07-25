@@ -18,6 +18,9 @@
  
  const navDiv = document.getElementById("navigation")
  
+ let reminderMode = false;
+ let reminderStr;
+ let reminderResponse;
  let counter = 0; //keeps track of conversation
  
  let navCounter = 0;
@@ -290,7 +293,7 @@
          inputBox.value = "";
      }
  
-     if (inputBox.value.includes("hi ") || inputBox.value.includes("hey")) {
+     if (inputBox.value.includes("hi") || inputBox.value.includes("hey")) {
          const casualGreeting =[ "Hey there", "Hii", "Hey",
          "Hello", "Hi"]
         
@@ -511,18 +514,38 @@
 
  if(inputBox.value.includes("remind me to ")){
 
-let reminderStr = inputBox.value;
+reminderMode = true;
 
-// get everything after first dash
-let slug = reminderStr.substring(reminderStr.indexOf('to ') + 2); // 01-2020
+reminderStr = inputBox.value;
 
-mainParagraph.textContent= "did you want me to remind you to" + slug + "?";
-// get everything after last dash 
-//const slug = str.split('-').pop(); // 2020
+reminderResponse = reminderStr.substring(reminderStr.indexOf('to ') + 2); // save after 'remind me TO' to reminderStr 
 
- }
+mainParagraph.textContent= "did you want me to remind you to" + reminderResponse + "?";
+// paste full response after reminder is understood. 
+inputBox.value = "";
+hueQuestionBox.innerHTML = `Type "yes" to confirm or "no" cancel reminder.`
+ };
  
- console.log()
+ if(inputBox.value.includes("yes") && reminderMode===true){
+    mainParagraph.textContent= "got it";
+    hueQuestionBox.innerHTML = ``
+    inputBox.value = "";
+console.log("reminderSet")
+
+setTimeout(function(){ hueQuestionBox.innerHTML = `dont forget to ` + reminderResponse + "."},3000)
+    }
+if(inputBox.value.includes("no") && reminderMode===true){
+        reminderMode = false;
+        mainParagraph.textContent= "ok";
+        hueQuestionBox.innerHTML = ``
+        inputBox.value = "";
+    console.log("reminder canceled")
+        }
+
+
+
+
+    
  }; // <= END OF FUNCTION fn1
  
  
