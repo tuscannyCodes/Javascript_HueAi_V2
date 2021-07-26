@@ -22,13 +22,14 @@
  let reminderStr;
  let reminderResponse;
  let reminderCounter;
+ 
  //REMINDER VARIABLES END
 
  let counter = 0; //keeps track of conversation
 
  let navCounter = 0;
  
- let audio = [new Audio('imClosingMyEyes.mp3'),new Audio('puertoMate.mp3')] //Music available in local version only 
+ let audio = [new Audio('imClosingMyEyes.mp3'),new Audio('puertoMate.mp3'),new Audio('hueReminderSound.mp3')] //Music available in local version only 
  //Keeps track of current song
  let songTrackNum = 0;
  
@@ -84,7 +85,7 @@
  function fn1() {
     
      clearInterval(timerId);
- 
+     hueQuestionBox.innerHTML = ``
  
  
  
@@ -491,7 +492,7 @@
      setTimeout(function(){hueQuestionBox.innerHTML = ""}, 7000)
      inputBox.value = "";
      songTrackNum = 2;
-     console.log("hit")
+     
  }
  
  else if (inputBox.value === "stop"){
@@ -533,7 +534,7 @@ hueQuestionBox.innerHTML = `Type "yes" to confirm or "no" cancel reminder.`
  
  if(inputBox.value.includes("yes") && reminderMode===true){
     mainParagraph.textContent= "Ok, when do you want me to remind you?";
-    hueQuestionBox.innerHTML = `Type a NUMBER and then "mins", "hrs", or "days"`
+    hueQuestionBox.innerHTML = `Type a NUMBER and then "mins" or "hrs"`
     inputBox.value = "";
     reminderCounter = 2;
     console.log("reminderSet")
@@ -556,12 +557,30 @@ if(reminderCounter = 2 && inputBox.value.includes(" mins")){
     reminderCounter = 0;
     setTimeout(function(){ hueQuestionBox.innerHTML = `dont forget to ` + reminderResponse + "."},numberValue * 60000)
     inputBox.value = "";
+    reminderMode = false;
 
+}
+//FOR HOURS
+if(reminderCounter = 2 && inputBox.value.includes(" hrs")){
+    mainParagraph.textContent= `Ok, I'll remind you in ${inputBox.value}`;
+    let numberValue = parseInt(inputBox.value, 10);
+    hueQuestionBox.innerHTML = ``
+    reminderCounter = 0;
+    setTimeout(function(){ hueQuestionBox.innerHTML = `dont forget to ` + reminderResponse + ".";
+
+    console.log("reminder is here")
+  
+  
+
+},numberValue * 3600000)
+    inputBox.value = "";
 }
 
 
 
 
+
+console.log(audio[2])
     
  }; // <= END OF FUNCTION fn1
  
