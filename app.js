@@ -53,7 +53,7 @@
  "cool","wow","meet you","old","hello","who ","where ","hi","hey",
  "your name","bored","boring"," your favorite color"," date","change",
  " day"," time","how are you","good","great","fantastic","yes","no",
- "my name"," me?","thanks","thank you","welcome","np","music","sing","song","stop","remind me to ",   ];
+ "my name"," me?","thanks","thank you","welcome","np","music","sing","song","stop","remind me to "," joke"   ];
  
  //--------------------------------------------------
  //VARIABLES END------------------------------------
@@ -368,6 +368,25 @@
      
    }
    //BASIC TIME RESPONSE END
+
+
+   // JOKE RESPONSE
+   if(inputBox.value.includes(" joke")){
+
+    const jokeList =[ "Have you heard about the new restaurant called Karma?","There’s no menu... You get what you deserve.",]
+   
+   
+    mainParagraph.innerHTML = jokeList[Math.floor(Math.random()*jokeList.length)];
+
+
+
+    mainParagraph.innerHTML = jokeList[0]
+    hueQuestionBox.innerHTML = jokeList[1]
+    counter++;
+    inputBox.value = "";
+     
+
+   }
    
 
 
@@ -628,8 +647,12 @@ console.log(audio[2])
  Hue provides the full date. 
  
  
+ 6. work on 'joke' response
+
    
  */
+
+
  
  
  
