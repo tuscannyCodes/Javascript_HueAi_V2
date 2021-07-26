@@ -17,12 +17,15 @@
  const hamburgerLines = document.getElementsByClassName("line")
  
  const navDiv = document.getElementById("navigation")
- 
+ //REMINDER VARIABLES START 
  let reminderMode = false;
  let reminderStr;
  let reminderResponse;
+ let reminderCounter;
+ //REMINDER VARIABLES END
+
  let counter = 0; //keeps track of conversation
- 
+
  let navCounter = 0;
  
  let audio = [new Audio('imClosingMyEyes.mp3'),new Audio('puertoMate.mp3')] //Music available in local version only 
@@ -518,6 +521,8 @@ reminderMode = true;
 
 reminderStr = inputBox.value;
 
+reminderCounter = 1;
+
 reminderResponse = reminderStr.substring(reminderStr.indexOf('to ') + 2); // save after 'remind me TO' to reminderStr 
 
 mainParagraph.textContent= "did you want me to remind you to" + reminderResponse + "?";
@@ -527,20 +532,32 @@ hueQuestionBox.innerHTML = `Type "yes" to confirm or "no" cancel reminder.`
  };
  
  if(inputBox.value.includes("yes") && reminderMode===true){
-    mainParagraph.textContent= "got it";
-    hueQuestionBox.innerHTML = ``
+    mainParagraph.textContent= "Ok, when do you want me to remind you?";
+    hueQuestionBox.innerHTML = `Type a NUMBER and then "mins", "hrs", or "days"`
     inputBox.value = "";
-console.log("reminderSet")
+    reminderCounter = 2;
+    console.log("reminderSet")
 
-setTimeout(function(){ hueQuestionBox.innerHTML = `dont forget to ` + reminderResponse + "."},3000)
+//setTimeout(function(){ hueQuestionBox.innerHTML = `dont forget to ` + reminderResponse + "."},3000)
     }
 if(inputBox.value.includes("no") && reminderMode===true){
         reminderMode = false;
+        reminderCounter = 0;
         mainParagraph.textContent= "ok";
         hueQuestionBox.innerHTML = ``
         inputBox.value = "";
     console.log("reminder canceled")
         }
+//FOR MINUTES
+if(reminderCounter = 2 && inputBox.value.includes(" mins")){
+    mainParagraph.textContent= `Ok, I'll remind you in ${inputBox.value}`;
+    let numberValue = parseInt(inputBox.value, 10);
+    hueQuestionBox.innerHTML = ``
+    reminderCounter = 0;
+    setTimeout(function(){ hueQuestionBox.innerHTML = `dont forget to ` + reminderResponse + "."},numberValue * 60000)
+    inputBox.value = "";
+
+}
 
 
 
