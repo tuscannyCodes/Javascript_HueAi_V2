@@ -373,7 +373,7 @@
    // JOKE RESPONSE
    if(inputBox.value.includes(" joke")){
 
-    const jokeList =[ "Have you heard about the new restaurant called Karma?","There’s no menu... You get what you deserve.",]
+    const jokeList =[ "Have you heard about the new restaurant called Karma?","There’s no menu... You get what you deserve."]
    
    
     mainParagraph.innerHTML = jokeList[Math.floor(Math.random()*jokeList.length)];
