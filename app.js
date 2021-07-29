@@ -373,20 +373,28 @@
    // JOKE RESPONSE
    if(inputBox.value.includes(" joke")){
 
-    const jokeList =[ "Have you heard about the new restaurant called Karma?","There’s no menu... You get what you deserve."]
+    const jokeList1 =[ "Have you heard about the new restaurant called Karma?"," Remember to take an extra pair of socks when you go golfing","What do you call someone with no body and no nose?",]
    
-   
-    mainParagraph.innerHTML = jokeList[Math.floor(Math.random()*jokeList.length)];
+    const jokeList2 = ["There’s no menu... You get what you deserve.","In case you get a HOLE IN ONE!","Nobody knows."]
+    mainParagraph.innerHTML = jokeList1[Math.floor(Math.random()*jokeList1.length)];
 
-
-
-    mainParagraph.innerHTML = jokeList[0]
-    hueQuestionBox.innerHTML = jokeList[1]
-    counter++;
     inputBox.value = "";
-     
+    if(mainParagraph.innerHTML == jokeList1[0]){
+
+        hueQuestionBox.innerHTML = jokeList2[0]
+    }
+    if(mainParagraph.innerHTML == jokeList1[1]){
+
+        hueQuestionBox.innerHTML = jokeList2[1]
+    }
+    if(mainParagraph.innerHTML == jokeList1[2]){
+
+        hueQuestionBox.innerHTML = jokeList2[2]
+    }
 
    }
+
+//JOKE RESPONSE END
    
 
 
