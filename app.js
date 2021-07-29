@@ -22,14 +22,13 @@
  let reminderStr;
  let reminderResponse;
  let reminderCounter;
- 
  //REMINDER VARIABLES END
 
  let counter = 0; //keeps track of conversation
 
- let navCounter = 0;
+ let navCounter = 0; // keeps track of if nav menu is open or closed. 
  
- let audio = [new Audio('imClosingMyEyes.mp3'),new Audio('puertoMate.mp3'),new Audio('hueReminderSound.mp3')] //Music available in local version only 
+ let audio = [new Audio('imClosingMyEyes.mp3'),new Audio('puertoMate.mp3'),new Audio('hueReminderSound.mp3')] 
  //Keeps track of current song
  let songTrackNum = 0;
  
@@ -93,22 +92,24 @@
  // -------I DONT UNDERSTAND---------
  
  if (inputBox.value != keyWords || inputBox.value != colors) {
+
+   
      const dontGetIt =[ "Sorry, Im having trouble understanding you.", "I didnt quite get that.", "I dont understand.",
       "Sorry, I dont know what that means yet.", "???"]
- 
- 
+      
+      
      mainParagraph.innerHTML = dontGetIt[Math.floor(Math.random()*dontGetIt.length)];
- //---------YOU SAID NOTHING---------
+    
+    }
+// -------I DONT UNDERSTAND END---------
+//---------YOU SAID NOTHING---------
      if (inputBox.value.length === 0) {
          const userSaidNothing = ["Hmmm... You did not type anything.", "You forgot to say something"];
          mainParagraph.innerHTML = userSaidNothing[Math.floor(Math.random()*userSaidNothing.length)];
          
      }
- 
- //---------SAID NOTHING END---------
- }
- 
- // -------I DONT UNDERSTAND END----------
+//---------SAID NOTHING END---------
+
  
  //---------------------ALL COLOR CHANGES--------------------
  
@@ -223,6 +224,23 @@
  
  //------------------SMALL TALK-------------------------
  
+
+ if (inputBox.value.includes("hello")) {
+    mainParagraph.innerHTML = "Hi there"
+    counter++;
+    inputBox.value = "";
+}
+
+if (inputBox.value.includes("hi") || inputBox.value.includes("hey")) {
+    const casualGreeting =[ "Hey there", "Hii", "Hey",
+    "Hello", "Hi"]
+   
+   
+    mainParagraph.innerHTML = casualGreeting[Math.floor(Math.random()*casualGreeting.length)];
+    counter++;
+    inputBox.value = "";
+}
+
  if (inputBox.value === "goodbye" || inputBox.value === "bye" ){
  
      mainParagraph.innerHTML = "Thank you so much for stopping by!"
@@ -238,7 +256,6 @@
      }
  
  }
- 
  
  
  if(inputBox.value.includes("how do you")){
@@ -264,7 +281,7 @@
      inputBox.value = "";
      }
  
-     if(inputBox.value.includes("wow")){
+    if(inputBox.value.includes("wow")){
  
          mainParagraph.innerHTML = "Amazing right!?"
          counter++;
@@ -286,12 +303,6 @@
          inputBox.value = "";
      }
  
-      
-     if (inputBox.value.includes("hello")) {
-         mainParagraph.innerHTML = "Hi there"
-         counter++;
-         inputBox.value = "";
-     }
  
      if (inputBox.value.includes("who ")) {
          mainParagraph.innerHTML = "I am a program that lives inside your browser. My name is Hue."
@@ -305,15 +316,7 @@
          inputBox.value = "";
      }
  
-     if (inputBox.value.includes("hi") || inputBox.value.includes("hey")) {
-         const casualGreeting =[ "Hey there", "Hii", "Hey",
-         "Hello", "Hi"]
-        
-        
-         mainParagraph.innerHTML = casualGreeting[Math.floor(Math.random()*casualGreeting.length)];
-         counter++;
-         inputBox.value = "";
-     }
+     
      if (inputBox.value.includes("your name")){
          mainParagraph.innerHTML = "My name is Hue."
          counter++;
@@ -386,9 +389,7 @@
        
      
    }
-   //BASIC TIME RESPONSE END
-
-
+   //TIME RESPONSE END
    // JOKE RESPONSE
    if(inputBox.value.includes(" joke")){
 
@@ -414,14 +415,7 @@
    }
 
 //JOKE RESPONSE END
-   
-
-
-//CLOCK MODE END
-
-
- 
- //------MOOD----------
+//------MOOD----------
  
  
  if(inputBox.value.includes("how are you")){
@@ -441,7 +435,7 @@
      
  
  }
- 
+ //------MOOD END----------
  // ----NAME INFORMATION------
    
  if (counter === 3) {
@@ -558,7 +552,7 @@
  
  //MUSIC SECTION END----- 
 
- //working section
+
  //REMINDER SECTION START -----
 
  if(inputBox.value.includes("remind me to ")){
