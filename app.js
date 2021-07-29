@@ -1,15 +1,15 @@
- //Speech API 
+ ///////////Speech API 
  
  const synth = window.speechSynthesis;
 //get speak text
 
-
+//SPEACH BOX 1---------- 
 //voices array
 let voices = [];
 //fill voices array with voices
 const getVoices = ()=>{
     voices = synth.getVoices();
-    console.log(voices)
+   
 };
 
 getVoices();
@@ -35,7 +35,7 @@ speakText.onerror = e => {
 // add voices 
 
 speakText.voice = voices[11];
-console.log(voices[0])
+
 
 //set pitch and rate
 speakText.rate = 1;
@@ -44,9 +44,48 @@ speakText.pitch = 1.2;
 synth.speak(speakText);
 
 }
+//SPEACH BOX 1 END---------- 
 
+//SPEACH BOX 2---------- 
+let voices2 = [];
+//fill voices array with voices
+const getVoices2 = ()=>{
+    voices2 = synth.getVoices();
+    
+};
 
- 
+getVoices2();
+
+//speak 
+
+const speak2 = () => {
+//check if speaking 
+if(synth.speaking){ 
+    console.error("already speaking...")
+    return;
+    }
+const speakText2 = new SpeechSynthesisUtterance(hueQuestionBox.textContent)
+
+speakText2.onend = e => {
+console.log("done speaking...");
+}
+//speak error
+speakText2.onerror = e => {
+
+    console.error("something went wrong")
+}
+// add voices 
+
+speakText2.voice = voices[11];
+console.log(voices[0])
+
+//set pitch and rate
+speakText2.rate = 1;
+speakText2.pitch = 1.2;
+
+synth.speak(speakText2);
+
+}
  
  //VARIABLES
  //----------------------------------------------
@@ -445,7 +484,7 @@ if (inputBox.value.includes("hi") || inputBox.value.includes("hey")) {
 
     const jokeList1 =[ "Have you heard about the new restaurant called Karma?"," Remember to take an extra pair of socks when you go golfing","What do you call someone with no body and no nose?",]
    
-    const jokeList2 = ["There’s no menu... You get what you deserve.","In case you get a HOLE IN ONE!","Nobody knows."]
+    const jokeList2 = ["There’s no menu... YOU GET WHAT YOU DESERVE!","In case you get a HOLE IN ONE!","Nobody knows."]
     mainParagraph.innerHTML = jokeList1[Math.floor(Math.random()*jokeList1.length)];
 
     inputBox.value = "";
@@ -464,6 +503,7 @@ if (inputBox.value.includes("hi") || inputBox.value.includes("hey")) {
 
    }
 
+   
 //JOKE RESPONSE END
 //------MOOD----------
  
@@ -670,6 +710,7 @@ if(reminderCounter = 2 && inputBox.value.includes(" hrs")){
 
 
 speak();
+setTimeout(speak2,4000)
     
  }; // <= END OF FUNCTION fn1
  
