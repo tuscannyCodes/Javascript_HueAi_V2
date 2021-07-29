@@ -53,7 +53,7 @@
  "cool","wow","meet you","old","hello","who ","where ","hi","hey",
  "your name","bored","boring"," your favorite color"," date","change",
  " day"," time","how are you","good","great","fantastic","yes","no",
- "my name"," me?","thanks","thank you","welcome","np","music","sing","song","stop","remind me to "," joke"   ];
+ "my name"," me?","thanks","thank you","welcome","np","music","sing","song","stop","remind me to "," joke","what can you do","what do you do","change color",   ];
  
  //--------------------------------------------------
  //VARIABLES END------------------------------------
@@ -210,6 +210,14 @@
      counter++;
  }
  
+ if(inputBox.value.includes ("change color")){
+    
+    mainParagraph.innerHTML = "What color would you like?"
+    inputBox.value = "";
+    counter++;
+ }
+
+
  //-----------ALL COLOR CHANGES END--------------------
  
  
@@ -331,6 +339,17 @@
          inputBox.value = "";
          counter++;
      }
+
+     if (inputBox.value.includes("what can you do")||inputBox.value.includes("what do you do") ) {
+ 
+        mainParagraph.innerHTML = "I can change colors, set reminders, play music, tell jokes and be generally charming."
+        inputBox.value = "";
+        counter++;
+    }
+
+//------------------SMALL TALK END-------------------------
+
+
  // DATE RESPONSE
      if (inputBox.value.includes(" date") || inputBox.value.includes(" day")){
          mainParagraph.textContent = `Today is ` + days[d.getDay()]+' '+months[d.getMonth()]+' '+d.getDate()+' '+d.getFullYear()
@@ -401,7 +420,6 @@
 //CLOCK MODE END
 
 
- //------------------SMALL TALK END-------------------------
  
  //------MOOD----------
  
