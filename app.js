@@ -1,3 +1,53 @@
+ //Speech API 
+ 
+ const synth = window.speechSynthesis;
+//get speak text
+
+
+//voices array
+let voices = [];
+//fill voices array with voices
+const getVoices = ()=>{
+    voices = synth.getVoices();
+    console.log(voices)
+};
+
+getVoices();
+
+//speak 
+
+const speak = () => {
+//check if speaking 
+if(synth.speaking){ 
+    console.error("already speaking...")
+    return;
+    }
+const speakText = new SpeechSynthesisUtterance(mainParagraph.textContent)
+
+speakText.onend = e => {
+console.log("done speaking...");
+}
+//speak error
+speakText.onerror = e => {
+
+    console.error("something went wrong")
+}
+// add voices 
+
+speakText.voice = voices[11];
+console.log(voices[0])
+
+//set pitch and rate
+speakText.rate = 1;
+speakText.pitch = 1.2;
+
+synth.speak(speakText);
+
+}
+
+
+ 
+ 
  //VARIABLES
  //----------------------------------------------
  let uName = false;
@@ -87,7 +137,7 @@
      hueQuestionBox.innerHTML = ``
  
  
- 
+ console.log("mainParagraph.value")
  
  // -------I DONT UNDERSTAND---------
  
@@ -448,7 +498,7 @@ if (inputBox.value.includes("hi") || inputBox.value.includes("hey")) {
  
  if (uName && counter === 3) {
      mainParagraph.style.fontSize = "20px";
-     mainParagraph.innerHTML = `Hello ${uName}! Its nice to meet you. ${uName} is such a nice name.`;
+     mainParagraph.innerHTML = `Hello ${uName}! Its nice to meet you... ${uName} is such a nice name.`;
      inputBox.style.backgroundColor = "white"
      inputBox.value = "";
      hueQuestionBox.innerHTML = "";
@@ -619,7 +669,7 @@ if(reminderCounter = 2 && inputBox.value.includes(" hrs")){
 
 
 
-console.log(audio[2])
+speak();
     
  }; // <= END OF FUNCTION fn1
  
