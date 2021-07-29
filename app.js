@@ -23,6 +23,7 @@ if(synth.speaking){
     return;
     }
 const speakText = new SpeechSynthesisUtterance(mainParagraph.textContent)
+speakText.volume = .3;
 
 speakText.onend = e => {
 console.log("done speaking...");
@@ -34,15 +35,15 @@ speakText.onerror = e => {
 }
 // add voices 
 
-speakText.voice = voices[11];
+speakText.voice = voices[33];
 
 
 //set pitch and rate
 speakText.rate = 1;
-speakText.pitch = 1.2;
+speakText.pitch = 2;
 
 synth.speak(speakText);
-
+console.log(voices)
 }
 //SPEACH BOX 1 END---------- 
 
@@ -60,14 +61,17 @@ getVoices2();
 
 const speak2 = () => {
 //check if speaking 
-/*if(synth.speaking){ 
-    console.error("already speaking...")
-    return;
-    }*/
-const speakText2 = new SpeechSynthesisUtterance(hueQuestionBox.textContent)
 
+const speakText2 = new SpeechSynthesisUtterance(hueQuestionBox.textContent)
+speakText2.volume = .3;
 speakText2.onend = e => {
 console.log("done speaking...");
+}//when NOT to use speak2 
+if(hueQuestionBox.innerHTML == `Type "stop" and I'll stop singing. `){ 
+    speakText2.volume = 0;
+    }
+if(reminderMode){
+    speakText2.volume = 0;
 }
 //speak error
 speakText2.onerror = e => {
@@ -76,12 +80,12 @@ speakText2.onerror = e => {
 }
 // add voices 
 
-speakText2.voice = voices[11];
+speakText2.voice = voices[33];
 console.log(voices[0])
 
 //set pitch and rate
 speakText2.rate = 1;
-speakText2.pitch = 1.2;
+speakText2.pitch = 2;
 
 synth.speak(speakText2);
 
@@ -315,7 +319,9 @@ synth.speak(speakText2);
  
 
  if (inputBox.value.includes("hello")) {
-    mainParagraph.innerHTML = "Hi there"
+
+    const formalGreeting = ["Hi there", "Hello",]
+    mainParagraph.innerHTML = formalGreeting[Math.floor(Math.random()*formalGreeting.length)];
     counter++;
     inputBox.value = "";
 }
@@ -604,10 +610,12 @@ if (inputBox.value.includes("hi") || inputBox.value.includes("hey")) {
      audio[0].play();
      audio[0].loop = true;
      mainParagraph.innerHTML = "Singing..."
+
      hueQuestionBox.innerHTML = `Type "stop" and I'll stop singing. `
      setTimeout(function(){hueQuestionBox.innerHTML = ""}, 7000)
      inputBox.value = "";
      songTrackNum = 1; 
+     
      
  }
  
