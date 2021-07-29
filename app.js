@@ -60,10 +60,10 @@ getVoices2();
 
 const speak2 = () => {
 //check if speaking 
-if(synth.speaking){ 
+/*if(synth.speaking){ 
     console.error("already speaking...")
     return;
-    }
+    }*/
 const speakText2 = new SpeechSynthesisUtterance(hueQuestionBox.textContent)
 
 speakText2.onend = e => {
@@ -302,7 +302,7 @@ synth.speak(speakText2);
  
  if(inputBox.value.includes ("change color")){
     
-    mainParagraph.innerHTML = "What color would you like?"
+    mainParagraph.innerHTML = "What color would you like me to be?"
     inputBox.value = "";
     counter++;
  }
@@ -684,7 +684,7 @@ if(reminderCounter = 2 && inputBox.value.includes(" mins")){
     let numberValue = parseInt(inputBox.value, 10);
     hueQuestionBox.innerHTML = ``
     reminderCounter = 0;
-    setTimeout(function(){ hueQuestionBox.innerHTML = `dont forget to ` + reminderResponse + "."},numberValue * 60000)
+    setTimeout(function(){hueQuestionBox.innerHTML = `dont forget to ` + reminderResponse + "."},numberValue * 60000)
     inputBox.value = "";
     reminderMode = false;
 
@@ -710,7 +710,7 @@ if(reminderCounter = 2 && inputBox.value.includes(" hrs")){
 
 
 speak();
-setTimeout(speak2,4000)
+setTimeout(speak2,3000)
     
  }; // <= END OF FUNCTION fn1
  
