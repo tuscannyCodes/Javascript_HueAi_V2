@@ -18,10 +18,10 @@ getVoices();
 
 const speak = () => {
 //check if speaking 
-if(synth.speaking){ 
+/*if(synth.speaking){ 
     console.error("already speaking...")
     return;
-    }
+    }*/
 const speakText = new SpeechSynthesisUtterance(mainParagraph.textContent)
 speakText.volume = .3;
 
@@ -35,12 +35,12 @@ speakText.onerror = e => {
 }
 // add voices 
 
-speakText.voice = voices[33];
+speakText.voice = voices[7];
 
 
 //set pitch and rate
 speakText.rate = 1;
-speakText.pitch = 2;
+speakText.pitch = 1;
 
 synth.speak(speakText);
 console.log(voices)
@@ -80,12 +80,12 @@ speakText2.onerror = e => {
 }
 // add voices 
 
-speakText2.voice = voices[33];
+speakText2.voice = voices[7];
 console.log(voices[0])
 
 //set pitch and rate
 speakText2.rate = 1;
-speakText2.pitch = 2;
+speakText2.pitch = 1;
 
 synth.speak(speakText2);
 
@@ -671,7 +671,7 @@ hueQuestionBox.innerHTML = `Type "yes" to confirm or "no" cancel reminder.`
  
  if(inputBox.value.includes("yes") && reminderMode===true){
     mainParagraph.textContent= "Ok, when do you want me to remind you?";
-    hueQuestionBox.innerHTML = `Type a NUMBER and then "mins" or "hrs"`
+    hueQuestionBox.innerHTML = `Type a NUMBER and then "mins"`
     inputBox.value = "";
     reminderCounter = 2;
     console.log("reminderSet")
@@ -691,9 +691,9 @@ if(reminderCounter = 2 && inputBox.value.includes(" mins")){
     mainParagraph.textContent= `Ok, I'll remind you in ${inputBox.value}`;
     let numberValue = parseInt(inputBox.value, 10);
     hueQuestionBox.innerHTML = ``
-    reminderCounter = 0;
     setTimeout(function(){hueQuestionBox.innerHTML = `dont forget to ` + reminderResponse + "."},numberValue * 60000)
     setTimeout(speak2, numberValue * 60000 + 10);
+    reminderCounter = 0;
     inputBox.value = "";
     reminderMode = false;
 
@@ -704,7 +704,7 @@ if(reminderCounter = 2 && inputBox.value.includes(" hrs")){
     let numberValue = parseInt(inputBox.value, 10);
     hueQuestionBox.innerHTML = ``
     reminderCounter = 0;
-    setTimeout(function(){ hueQuestionBox.innerHTML = `dont forget to ` + reminderResponse + ".";
+    setTimeout(function(){ hueQuestionBox.innerHTML = `dont forget to ` + reminderResponse + ".";//still working on this.
 
     console.log("reminder is here")
   
@@ -742,7 +742,7 @@ setTimeout(speak2,3000)
  //NOTES 
  /****** 
    
-  1.
+  1. ***DONE***
   I want to add a "reminder" feature. Where if you use a keyword 'remind me' it grabs the text after the keword and saves it to
   a reminder variable. It should then ask the user "when would you like me to remind you?" maybe a selector box pops up with possible 
   times. Maybe i could work on a seperate 'simple reminder app' to get the functionality right, and then implement it into Hue.    
@@ -767,7 +767,8 @@ setTimeout(speak2,3000)
  Hue provides the full date. 
  
  
- 6. work on 'joke' response
+ 6. ***DONE***
+ work on 'joke' response
 
    
  */
