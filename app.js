@@ -693,6 +693,7 @@ if(reminderCounter = 2 && inputBox.value.includes(" mins")){
     hueQuestionBox.innerHTML = ``
     reminderCounter = 0;
     setTimeout(function(){hueQuestionBox.innerHTML = `dont forget to ` + reminderResponse + "."},numberValue * 60000)
+    setTimeout(speak2, numberValue * 60000 + 10);
     inputBox.value = "";
     reminderMode = false;
 
