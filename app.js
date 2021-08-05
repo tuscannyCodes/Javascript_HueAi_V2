@@ -107,7 +107,7 @@ synth.speak(speakText2);
  
  const hamburger = document.querySelector(".hamburger");
  
- const hamburgerLines = document.getElementsByClassName("line")
+ const theLines = document.getElementsByClassName(".line")
  
  const navDiv = document.getElementById("navigation")
  //REMINDER VARIABLES START 
@@ -277,12 +277,14 @@ synth.speak(speakText2);
  
  if (inputBox.value.includes (colors[6])) { 
 
-     body.style.backgroundColor = "white"
-     mainButton.style.backgroundColor = "whiteSmoke"
-     inputBox.style.backgroundColor = "WhiteSmoke"
-     mainParagraph.style.color = "black"
-     mainParagraph.innerHTML = "Minimal"
-     mainButton.style.color = "black"
+    
+     body.style.backgroundColor = "white";
+     mainButton.style.backgroundColor = "whiteSmoke";
+     inputBox.style.backgroundColor = "WhiteSmoke";
+     mainParagraph.style.color = "black";
+     mainParagraph.innerHTML = "Minimal";
+   
+     mainButton.style.color = "black";
      inputBox.value = "";
      counter++;
  
@@ -721,6 +723,8 @@ if(reminderCounter = 2 && inputBox.value.includes(" hrs")){
 speak();
 setTimeout(speak2,3000)
     
+
+
  }; // <= END OF FUNCTION fn1
  
  
