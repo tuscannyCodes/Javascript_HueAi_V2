@@ -276,6 +276,13 @@ synth.speak(speakText2);
  }
  
  if (inputBox.value.includes (colors[6])) { 
+     
+    for(let i =0 ; i < theLines.length; i++ ){
+        theLines[i].style.backgroundColor = "black";
+        
+        
+             }
+
     navBackground.style.backgroundColor = "black"
     navBackground.style.color = "white"
      body.style.backgroundColor = "white";
@@ -283,6 +290,7 @@ synth.speak(speakText2);
      inputBox.style.backgroundColor = "WhiteSmoke";
      mainParagraph.style.color = "black";
      mainParagraph.innerHTML = "Minimal";
+
    
      mainButton.style.color = "black";
      inputBox.value = "";
@@ -553,10 +561,10 @@ if (inputBox.value.includes("hi") || inputBox.value.includes("hey")) {
      counter++; //counter === 4
  
  //-------IN CASE COLOR CHANGE IS WHITE-----
- if (body.style.backgroundColor === "white") {
-     inputBox.style.backgroundColor = "WhiteSmoke"
+//  if (body.style.backgroundColor === "white") {
+//      inputBox.style.backgroundColor = "WhiteSmoke"
      
-     }
+//      }
  //-------IN CASE COLOR CHANGE IS WHITE-----  
  }
  
