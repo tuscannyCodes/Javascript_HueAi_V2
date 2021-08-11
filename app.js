@@ -107,7 +107,7 @@ synth.speak(speakText2);
  
  const hamburger = document.querySelector(".hamburger");
  
- const theLines = document.getElementsByClassName(".line")
+ const theLines = document.getElementsByClassName("line")
  const navBackground = document.getElementById("navBackground")
  const navDiv = document.getElementById("navigation")
  //REMINDER VARIABLES START 
@@ -277,14 +277,13 @@ synth.speak(speakText2);
  
  if (inputBox.value.includes (colors[6])) { 
      
-    for(let i =0 ; i < theLines.length; i++ ){
-        theLines[i].style.backgroundColor = "black";
-        
-        
-             }
+    
+ for(let i = 0; i < theLines.length; i ++){
+    theLines[i].style.backgroundColor = "black"
 
-    navBackground.style.backgroundColor = "black"
-    navBackground.style.color = "white"
+ }
+    navBackground.style.backgroundColor = "black";
+    navBackground.style.color = "white";
      body.style.backgroundColor = "white";
      mainButton.style.backgroundColor = "whiteSmoke";
      inputBox.style.backgroundColor = "WhiteSmoke";
@@ -296,8 +295,14 @@ synth.speak(speakText2);
      inputBox.value = "";
      counter++;
  
+ console.log(theLines);
  
- 
+ }else {
+
+    for(let i = 0; i < theLines.length; i ++){
+        theLines[i].style.backgroundColor = "white"
+    
+     }
  }
  
  
