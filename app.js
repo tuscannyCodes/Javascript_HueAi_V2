@@ -163,6 +163,15 @@ synth.speak(speakText2);
  
  else if (navCounter % 2 == 0) {
      mainParagraph.textContent = "Welcome back friend :D"}});
+
+// if(navBackground.className != "open"){
+    
+//     for(let i = 0; i < theLines.length; i ++){
+//         theLines[i].style.backgroundColor = "white"
+    
+//      }
+
+// }
  
     
      
@@ -288,21 +297,23 @@ synth.speak(speakText2);
      mainButton.style.backgroundColor = "whiteSmoke";
      inputBox.style.backgroundColor = "WhiteSmoke";
      mainParagraph.style.color = "black";
+     hueQuestionBox.style.color = "black";
      mainParagraph.innerHTML = "Minimal";
-
+    
    
      mainButton.style.color = "black";
      inputBox.value = "";
      counter++;
- 
- console.log(theLines);
- 
+
  }else {
 
-    for(let i = 0; i < theLines.length; i ++){
-        theLines[i].style.backgroundColor = "white"
     
-     }
+
+    for(let i = 0; i < theLines.length; i ++){
+        
+    
+     };
+     
  }
  
  
@@ -565,12 +576,6 @@ if (inputBox.value.includes("hi") || inputBox.value.includes("hey")) {
      hueQuestionBox.innerHTML = "";
      counter++; //counter === 4
  
- //-------IN CASE COLOR CHANGE IS WHITE-----
-//  if (body.style.backgroundColor === "white") {
-//      inputBox.style.backgroundColor = "WhiteSmoke"
-     
-//      }
- //-------IN CASE COLOR CHANGE IS WHITE-----  
  }
  
      if ((inputBox.value.includes("my name")) && (uName)){
