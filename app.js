@@ -94,6 +94,8 @@ synth.speak(speakText2);
  //VARIABLES
  //----------------------------------------------
  let uName = false;
+let searchOption = 0;
+let q;
 
  const mainParagraph = document.getElementById("mainParagraph"); 
  
@@ -164,6 +166,8 @@ synth.speak(speakText2);
  else if (navCounter % 2 == 0) {
      mainParagraph.textContent = "Welcome back friend :D"}});
 
+     
+
 // if(navBackground.className != "open"){
     
 //     for(let i = 0; i < theLines.length; i ++){
@@ -189,20 +193,26 @@ synth.speak(speakText2);
      hueQuestionBox.innerHTML = ``
  
  
- console.log("mainParagraph.value")
+ 
  
  // -------I DONT UNDERSTAND---------
  
  if (inputBox.value != keyWords || inputBox.value != colors) {
-
    
+    q= inputBox.value;
      const dontGetIt =[ "Sorry, Im having trouble understanding you.", "I didnt quite get that.", "I dont understand.",
       "Sorry, I dont know what that means yet.", "???"]
       
       
-     mainParagraph.innerHTML = dontGetIt[Math.floor(Math.random()*dontGetIt.length)];
+     mainParagraph.innerHTML = dontGetIt[Math.floor(Math.random()*dontGetIt.length)]+" "+ `Would you like me to search ${q}? Type "yes" or "no"`;
+     searchOption++
+
+// hueQuestionBox.textContent = ;
+
+
     
-    }
+ }
+     
 // -------I DONT UNDERSTAND END---------
 //---------YOU SAID NOTHING---------
      if (inputBox.value.length === 0) {
@@ -315,6 +325,8 @@ synth.speak(speakText2);
      };
      
  }
+
+ 
  
  
  if (inputBox.value.includes (colors[7])) {

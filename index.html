@@ -1,54 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
     <title>HueAi_V2 (webversion)</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body id="mainBody">
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body id="mainBody">
     <audio src="http://"></audio>
-   
-<!-- Hidden Nav Section-->
-<div id="navBackground">
 
-
-    <p id="navContent1"> Hue is an experimental Javascript based Chatbot. Hue will learn and get smarter as your conversation continues. To change the color theme, ask Hue to change to a specific color. 
-    </p>
-
-    
-
-</div>
+    <!-- Hidden Nav Section-->
+    <div id="navBackground">
+      <p id="navContent1">
+        Hue is an experimental Javascript based Chatbot. Hue will learn and get
+        smarter as your conversation continues. To change the color theme, ask
+        Hue to change to a specific color.
+      </p>
+    </div>
 
     <nav id="navigation">
-        <div class="hamburger">
-            <div class="line"></div>
-            <div class="line"></div>
-            <div class="line"></div>
-          </div>
-</nav>
+      <div class="hamburger">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+    </nav>
 
+    <!-- Hidden Nav Section END-->
 
-<!-- Hidden Nav Section END-->
+    <!------main body section ------>
+    <div class="container1">
+      <p id="mainParagraph">say something</p>
 
-<!------main body section ------>
-<div class="container1"> 
+      <p id="mainParagraph2"></p>
 
-<p id="mainParagraph"> say something</p>
+      <input id="mainInputBox" />
 
-<p id="mainParagraph2"></p>
-
-<input id="mainInputBox"> 
-<button id="mainButton"  onclick="fn1()">SAY SOMETHING</button>
-
-
-
-
-
-
-
-</div> <!-- /ENDcontainer -->
-<script src="app.js"></script>
-</body>
+      <button id="mainButton" onclick="fn1()">SAY SOMETHING</button>
+    </div>
+    <!-- /ENDcontainer -->
+    <script src="app.js"></script>
+  </body>
 </html>
