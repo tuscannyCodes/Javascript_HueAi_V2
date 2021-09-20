@@ -93,8 +93,9 @@ synth.speak(speakText2);
  
  //VARIABLES
  //----------------------------------------------
+ let searchQuery;
  let uName = false;
-let searchOption = 0;
+let searchMode = false ;
 let q;
 
  const mainParagraph = document.getElementById("mainParagraph"); 
@@ -187,8 +188,13 @@ let q;
  //NAVIGATION FUNCTIONS END----------------------
  
  //MAIN BUTTON FUNCTION----------
+
+ const queryTerm = [] ;
  function fn1() {
-    
+     
+     console.log(q)
+     console.log(queryTerm)
+    queryTerm.push(inputBox.value);
      clearInterval(timerId);
      hueQuestionBox.innerHTML = ``
  
@@ -197,21 +203,29 @@ let q;
  
  // -------I DONT UNDERSTAND---------
  
- if (inputBox.value != keyWords || inputBox.value != colors) {
+ if ( !keyWords.includes(inputBox.value) || !colors.includes(inputBox.value)) {
    
     q= inputBox.value;
+    
      const dontGetIt =[ "Sorry, Im having trouble understanding you.", "I didnt quite get that.", "I dont understand.",
       "Sorry, I dont know what that means yet.", "???"]
       
-      
+       
      mainParagraph.innerHTML = dontGetIt[Math.floor(Math.random()*dontGetIt.length)]+" "+ `Would you like me to search ${q}? Type "yes" or "no"`;
-     searchOption++
 
-// hueQuestionBox.textContent = ;
-
-
-    
+     searchMode = true;
+       
  }
+//  THIS IS TO SEARCH THE QUERY
+if(inputBox.value === "yes" && searchMode === true){
+    mainParagraph.innerHTML = `Ok, I created a new tab with a search for ${queryTerm[queryTerm.length - 2]}` 
+    console.log(queryTerm[queryTerm.length - 2])
+    console.log(searchMode)
+    console.log(reminderMode)
+     // This empties the array
+     queryTerm = [];
+}
+ 
      
 // -------I DONT UNDERSTAND END---------
 //---------YOU SAID NOTHING---------
@@ -362,6 +376,8 @@ let q;
     mainParagraph.innerHTML = formalGreeting[Math.floor(Math.random()*formalGreeting.length)];
     counter++;
     inputBox.value = "";
+    console.log(searchMode)
+    
 }
 
 if (inputBox.value.includes("hi") || inputBox.value.includes("hey")) {
