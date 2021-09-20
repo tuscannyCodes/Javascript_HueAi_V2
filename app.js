@@ -214,8 +214,10 @@ let q;
      mainParagraph.innerHTML = dontGetIt[Math.floor(Math.random()*dontGetIt.length)]+" "+ `Would you like me to search ${q}? Type "yes" or "no"`;
 
     searchMode = true;
-} // this code bock will run reguardless and that is a problem for reminder code block
+} 
+// this code bock will run reguardless and that is a problem for reminder code block
 //  THIS IS TO SEARCH THE QUERY
+//entering yes will always run this code block. Undesired. 
 if(searchMode === true && inputBox.value === "yes") {
     mainParagraph.innerHTML = `Ok, I created a new tab with a search for ${queryTerm[queryTerm.length - 2]}` 
     console.log(queryTerm[queryTerm.length - 2])
@@ -225,9 +227,8 @@ if(searchMode === true && inputBox.value === "yes") {
      // This empties the array
      queryTerm = [];
 }
- 
-     
 // -------I DONT UNDERSTAND END---------
+
 //---------YOU SAID NOTHING---------
      if (inputBox.value.length === 0) {
          const userSaidNothing = ["Hmmm... You did not type anything.", "You forgot to say something"];
