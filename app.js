@@ -192,7 +192,7 @@ let q;
  const queryTerm = [] ;
  function fn1() {
      
-     console.log(q)
+     console.log(searchMode)
      console.log(queryTerm)
     queryTerm.push(inputBox.value);
      clearInterval(timerId);
@@ -213,15 +213,15 @@ let q;
        
      mainParagraph.innerHTML = dontGetIt[Math.floor(Math.random()*dontGetIt.length)]+" "+ `Would you like me to search ${q}? Type "yes" or "no"`;
 
-     searchMode = true;
-       
- }
+    searchMode = true;
+} // this code bock will run reguardless and that is a problem for reminder code block
 //  THIS IS TO SEARCH THE QUERY
-if(inputBox.value === "yes" && searchMode === true){
+if(searchMode === true && inputBox.value === "yes") {
     mainParagraph.innerHTML = `Ok, I created a new tab with a search for ${queryTerm[queryTerm.length - 2]}` 
     console.log(queryTerm[queryTerm.length - 2])
     console.log(searchMode)
     console.log(reminderMode)
+    searchMode = false;
      // This empties the array
      queryTerm = [];
 }
@@ -256,7 +256,7 @@ if(inputBox.value === "yes" && searchMode === true){
      mainButton.style.backgroundColor = "DarkOrange"
      navBackground.style.backgroundColor = "DarkOrange"
      mainParagraph.style.color = "white"
-     mainParagraph.innerHTML = "Vitamin C... ++ "
+     mainParagraph.innerHTML = "Vitamin C... Sharp "
      inputBox.value = "";
      counter++;
  }
@@ -510,7 +510,7 @@ if (inputBox.value.includes("hi") || inputBox.value.includes("hey")) {
      }
  
  //TIME RESPONSE 
- 
+ // speech not working with time response 
      if (inputBox.value.includes(" time")) {
      timerId = setInterval(currentTime, 10);
  
