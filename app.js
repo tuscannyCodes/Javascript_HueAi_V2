@@ -198,11 +198,11 @@ let q;
      hueQuestionBox.innerHTML = ``
  
  
- 
+ // this code bock is broken and will not run. need to figure out how to check through array
  
  // -------I DONT UNDERSTAND---------
  
- if( !keyWords.includes(inputBox.value) || !colors.includes(inputBox.value)) {
+ if(inputBox.value.includes(!keyWords[keyWords.length]) || inputBox.value.includes(!colors[colors.length])){
    
     q= inputBox.value;
     
@@ -213,11 +213,11 @@ let q;
      mainParagraph.innerHTML = dontGetIt[Math.floor(Math.random()*dontGetIt.length)]+" "+ `Would you like me to search ${q}? Type "yes" or "no"`;
 
     searchMode = true;
-    
+   
 } 
-// this code bock will run reguardless and that is a problem for reminder code block
+
 //  THIS IS TO SEARCH THE QUERY
-//entering yes will always run this code block. Undesired. 
+
 if( inputBox.value === "yes" && searchMode=== true) {
     mainParagraph.innerHTML = `Ok, I created a new tab with a search for ${queryTerm[queryTerm.length - 2]}` 
     console.log(queryTerm[queryTerm.length - 2])
