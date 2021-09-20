@@ -192,8 +192,7 @@ let q;
  const queryTerm = [] ;
  function fn1() {
      
-     console.log(searchMode)
-     console.log(queryTerm)
+    
     queryTerm.push(inputBox.value);
      clearInterval(timerId);
      hueQuestionBox.innerHTML = ``
@@ -203,7 +202,7 @@ let q;
  
  // -------I DONT UNDERSTAND---------
  
- if ( !keyWords.includes(inputBox.value) || !colors.includes(inputBox.value)) {
+ if( !keyWords.includes(inputBox.value) || !colors.includes(inputBox.value)) {
    
     q= inputBox.value;
     
@@ -214,11 +213,12 @@ let q;
      mainParagraph.innerHTML = dontGetIt[Math.floor(Math.random()*dontGetIt.length)]+" "+ `Would you like me to search ${q}? Type "yes" or "no"`;
 
     searchMode = true;
+    
 } 
 // this code bock will run reguardless and that is a problem for reminder code block
 //  THIS IS TO SEARCH THE QUERY
 //entering yes will always run this code block. Undesired. 
-if(searchMode === true && inputBox.value === "yes") {
+if( inputBox.value === "yes" && searchMode=== true) {
     mainParagraph.innerHTML = `Ok, I created a new tab with a search for ${queryTerm[queryTerm.length - 2]}` 
     console.log(queryTerm[queryTerm.length - 2])
     console.log(searchMode)
