@@ -99,7 +99,7 @@ let searchMode = false ;
 let q;
 
 const dontGetIt =[ "Sorry, Im having trouble understanding you.", "I didnt quite get that.", "I dont understand.",
-      "Sorry, I dont know what that means yet.", "???"]
+      "Sorry, I dont know what that means yet.", "???", "I dont get what you mean by that", "hmmmmm, I dont get it", "hu?"]
 
  const mainParagraph = document.getElementById("mainParagraph"); 
  
