@@ -98,6 +98,9 @@ synth.speak(speakText2);
 let searchMode = false ;
 let q;
 
+const dontGetIt =[ "Sorry, Im having trouble understanding you.", "I didnt quite get that.", "I dont understand.",
+      "Sorry, I dont know what that means yet.", "???"]
+
  const mainParagraph = document.getElementById("mainParagraph"); 
  
  const hueQuestionBox = document.getElementById("mainParagraph2"); 
@@ -144,11 +147,11 @@ let q;
  
  let colors = ["pink","orange","blue","red","green","black","white","purple"]
  
- let keyWords = ["",colors,"goodbye","bye","how do you","ok",
+ let keyWords = ["","colors","goodbye","bye","how do you","ok",
  "cool","wow","meet you","old","hello","who ","where ","hi","hey",
  "your name","bored","boring"," your favorite color"," date","change",
  " day"," time","how are you","good","great","fantastic","yes","no",
- "my name"," me?","thanks","thank you","welcome","np","music","sing","song","stop","remind me to "," joke","what can you do","what do you do","change color",   ];
+ "my name"," me?","thanks","thank you","welcome","np","music","sing","song","stop","remind me to "," joke","what can you do","what do you do","change color"];
  
  //--------------------------------------------------
  //VARIABLES END------------------------------------
@@ -202,24 +205,27 @@ let q;
  
  // -------I DONT UNDERSTAND---------
  
- if(inputBox.value.includes(!keyWords[keyWords.length]) || inputBox.value.includes(!colors[colors.length])){
+ if(!keyWords.includes(inputBox.value) && !colors.includes(inputBox.value)){
    
     q= inputBox.value;
     
-     const dontGetIt =[ "Sorry, Im having trouble understanding you.", "I didnt quite get that.", "I dont understand.",
-      "Sorry, I dont know what that means yet.", "???"]
-      
-       
      mainParagraph.innerHTML = dontGetIt[Math.floor(Math.random()*dontGetIt.length)]+" "+ `Would you like me to search ${q}? Type "yes" or "no"`;
-
+console.log(searchMode)
     searchMode = true;
-   
+   console.log(searchMode);
 } 
 
 //  THIS IS TO SEARCH THE QUERY
 
-if( inputBox.value === "yes" && searchMode=== true) {
-    mainParagraph.innerHTML = `Ok, I created a new tab with a search for ${queryTerm[queryTerm.length - 2]}` 
+if( inputBox.value === "yes" && searchMode=== true && mainParagraph.innerHTML.includes("Type")) {
+    mainParagraph.textContent = `Ok, I created a new tab with a search for ${queryTerm[queryTerm.length - 2]}`
+    
+    function search()
+{
+    url ='http://www.google.com/search?q=' + queryTerm[queryTerm.length - 2];
+    window.open(url,'_blank');
+}
+search();
     console.log(queryTerm[queryTerm.length - 2])
     console.log(searchMode)
     console.log(reminderMode)
