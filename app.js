@@ -769,12 +769,33 @@ if(reminderCounter = 2 && inputBox.value.includes(" hrs")){
     inputBox.value = "";
 }
 
+// AUTOMATED RESPONSES 
+var inactivityTime = function () {
+    var time;
+    window.onload = resetTimer;
+    // DOM Events
+    document.onmousemove = resetTimer;
+    document.onkeydown = resetTimer;
 
+    function automatedResponse() {
+        hueQuestionBox.innerHTML = "Hey... are you still there?";
+        
+        
+setTimeout(speak2,2000)
+    }
 
+    function resetTimer() {
+        clearTimeout(time);
+        time = setTimeout(automatedResponse, 10000)
+        // 1000 milliseconds = 1 second
+    }
+};
 
+setTimeout(inactivityTime, 1000)
 
+// not ready yet
 speak();
-setTimeout(speak2,3000)
+setTimeout(speak2,2000)
     
 
 
