@@ -213,14 +213,19 @@ const dontGetIt =[ "Sorry, Im having trouble understanding you.", "I didnt quite
 console.log(searchMode)
     searchMode = true;
    console.log(searchMode);
+ 
+   
 } 
 
 //  THIS IS TO SEARCH THE QUERY
 
 if( inputBox.value === "yes" && searchMode=== true && mainParagraph.innerHTML.includes("Type")) {
-    mainParagraph.textContent = `Ok, I created a new tab with a search for ${queryTerm[queryTerm.length - 2]}`
     
+    mainParagraph.textContent = `Ok, I created a new tab with a search for ${queryTerm[queryTerm.length - 2]}`
+    speak();
     function search()
+   
+    
 {
     url ='http://www.google.com/search?q=' + queryTerm[queryTerm.length - 2];
     window.open(url,'_blank');
@@ -239,7 +244,7 @@ search();
      if (inputBox.value.length === 0) {
          const userSaidNothing = ["Hmmm... You did not type anything.", "You forgot to say something"];
          mainParagraph.innerHTML = userSaidNothing[Math.floor(Math.random()*userSaidNothing.length)];
-         
+         inputBox.value = "";
      }
 //---------SAID NOTHING END---------
 
@@ -786,7 +791,7 @@ setTimeout(speak2,2000)
 
     function resetTimer() {
         clearTimeout(time);
-        time = setTimeout(automatedResponse, 10000)
+        time = setTimeout(automatedResponse, 30000)
         // 1000 milliseconds = 1 second
     }
 };
