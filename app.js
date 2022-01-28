@@ -775,28 +775,28 @@ if(reminderCounter = 2 && inputBox.value.includes(" hrs")){
 }
 
 // AUTOMATED RESPONSES 
-var inactivityTime = function () {
-    var time;
-    window.onload = resetTimer;
-    // DOM Events
-    document.onmousemove = resetTimer;
-    document.onkeydown = resetTimer;
+// var inactivityTime = function () {
+//     var time;
+//     window.onload = resetTimer;
+//     // DOM Events
+//     document.onmousemove = resetTimer;
+//     document.onkeydown = resetTimer;
 
-    function automatedResponse() {
-        hueQuestionBox.innerHTML = "Hey... are you still there?";
+//     function automatedResponse() {
+//         hueQuestionBox.innerHTML = "Hey... are you still there?";
         
         
-setTimeout(speak2,2000)
-    }
+// setTimeout(speak2,2000)
+//     }
 
-    function resetTimer() {
-        clearTimeout(time);
-        time = setTimeout(automatedResponse, 30000)
-        // 1000 milliseconds = 1 second
-    }
-};
+//     function resetTimer() {
+//         clearTimeout(time);
+//         time = setTimeout(automatedResponse, 30000)
+//         // 1000 milliseconds = 1 second
+//     }
+// };
 
-setTimeout(inactivityTime, 1000)
+// setTimeout(inactivityTime, 1000)
 
 // not ready yet
 speak();
